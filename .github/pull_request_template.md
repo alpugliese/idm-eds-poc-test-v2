@@ -3,5 +3,5 @@ Please always provide the [GitHub issue(s)](../issues) your PR is for, as well a
 Fix #<gh-issue-id>
 
 Test URLs:
-- Before: https://main--{repo}--{owner}.aem.live/
-- After: https://<branch>--{repo}--{owner}.aem.live/
+- Before: https://main--idm-eds-poc-test-v2--alpugliese.aem.live/
+- After: https://<branch>--idm-eds-poc-test-v2--alpugliese.aem.live/
