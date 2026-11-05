@@ -1,325 +1,237 @@
 /*
- * Copyright 2020 Adobe. All rights reserved.
- * This file is licensed to you under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License. You may obtain a copy
- * of the License at http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under
- * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
- * OF ANY KIND, either express or implied. See the License for the specific language
- * governing permissions and limitations under the License.
+ * IDM Suedtirol - Edge Delivery Services
+ * Global Styles – token identici al progetto AEM
+ * Font: 'Source Sans Pro' (body), 'Suedtirol Next' (headings)
  */
 
+/* --- CUSTOM PROPERTIES (DESIGN TOKENS) – da _variables.scss --- */
 :root {
-  /* colors */
-  --background-color: white;
-  --light-color: #f8f8f8;
-  --dark-color: #505050;
-  --text-color: #131313;
-  --link-color: #3b63fb;
-  --link-hover-color: #1d3ecf;
+    /* Brand Colors */
+    --color-forest-green: #50742F;
+    --color-lime-green: #A9BF00;
+    --color-fire-brick: #B31939;
+    --color-dark-orange: #B95200;
+    --color-dark-orange-hover: #8C4A07;
+    --color-dark-orange-card-hover: #974300;
+    --color-light-slate-gray: #758592;
+    --color-light-slate-gray-aa: #5B7286;
+    --color-light-slate-gray-hover: #425261;
+    --color-gold: #F4D100;
+    --color-sky-blue: #A9CDE9;
+    --color-maroon: #6F273F;
 
-  /* fonts */
-  --body-font-family: roboto, roboto-fallback, sans-serif;
-  --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
+    /* Neutrals */
+    --color-dark-gray: #282828;
+    --color-gray: #999999;
+    --color-medium-gray: #C4C4C4;
+    --color-light-gray: #CCCCCC;
+    --color-lightest-gray: #F5F5F5;
+    --color-lightest-gray-hover: #E8E8E8;
+    --color-white: #FFFFFF;
+    --color-black: #000000;
 
-  /* body sizes */
-  --body-font-size-m: 22px;
-  --body-font-size-s: 19px;
-  --body-font-size-xs: 17px;
+    /* Semantic */
+    --color-error: #CA002F;
+    --color-success: #007934;
+    --color-info: #00769D;
+    --color-info-fill: #E6F6FC;
+    --color-disabled: #BFBFBF;
 
-  /* heading sizes */
-  --heading-font-size-xxl: 55px;
-  --heading-font-size-xl: 44px;
-  --heading-font-size-l: 34px;
-  --heading-font-size-m: 27px;
-  --heading-font-size-s: 24px;
-  --heading-font-size-xs: 22px;
+    /* Shadows */
+    --shadow-card: 0 2px 20px rgba(0,0,0,0.10), 0 2px 7.5px rgba(0,0,0,0.125);
+    --shadow-s: 0 1px 4px rgba(0,0,0,0.10);
+    --shadow-m: 0 4px 16px rgba(0,0,0,0.12);
 
-  /* nav height */
-  --nav-height: 64px;
+    /* Typography */
+    --font-heading: 'Suedtirol Next', 'Source Sans Pro', sans-serif;
+    --font-body: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
+    --font-size-12: 0.75rem;
+    --font-size-14: 0.875rem;
+    --font-size-16: 1rem;
+    --font-size-18: 1.125rem;
+    --font-size-20: 1.25rem;
+    --font-size-24: 1.5rem;
+    --font-size-32: 2rem;
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    /* Layout */
+    --grid-max-width: 1280px;
+    --grid-margin: 1.5rem;
+
+    /* Component spacing (IDM): padding verticale dei componenti, 40px da 960px */
+    --component-padding-top: 16px;
+    --component-padding-bottom: 24px;
+    --nav-height: 72px;
+
+    /* Border radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-pill: 999px;
+
+    /* Transitions */
+    --transition-fast: 200ms ease;
+    --transition-base: 300ms ease;
 }
 
-/* fallback fonts */
-@font-face {
-  font-family: roboto-condensed-fallback;
-  size-adjust: 88.82%;
-  src: local('Arial');
-}
-
-@font-face {
-  font-family: roboto-fallback;
-  size-adjust: 99.529%;
-  src: local('Arial');
-}
-
-@media (width >= 900px) {
-  :root {
-    /* body sizes */
-    --body-font-size-m: 18px;
-    --body-font-size-s: 16px;
-    --body-font-size-xs: 14px;
-
-    /* heading sizes */
-    --heading-font-size-xxl: 45px;
-    --heading-font-size-xl: 36px;
-    --heading-font-size-l: 28px;
-    --heading-font-size-m: 22px;
-    --heading-font-size-s: 20px;
-    --heading-font-size-xs: 18px;
-  }
-}
+/* --- RESET --- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 
 body {
-  display: none;
-  margin: 0;
-  background-color: var(--background-color);
-  color: var(--text-color);
-  font-family: var(--body-font-family);
-  font-size: var(--body-font-size-m);
-  line-height: 1.6;
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-dark-gray);
+    background: var(--color-white);
+    overflow-x: hidden;
+    line-height: normal;
 }
+body.appear { display: block; }
+header { height: var(--nav-height); }
 
-body.appear {
-  display: block;
+/* --- TYPOGRAPHY --- */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.2;
+    margin-top: 0;
+    margin-bottom: 1rem;
 }
+h1 { font-size: var(--font-size-32); }
+h2 { font-size: var(--font-size-24); }
+h3 { font-size: var(--font-size-20); }
+h4 { font-size: var(--font-size-18); }
+h5, h6 { font-size: var(--font-size-16); }
 
-header {
-  height: var(--nav-height);
-}
+p, ul, ol { margin-top: 0; margin-bottom: 1rem; }
+p:last-child, h1:last-child, h2:last-child, h3:last-child,
+h4:last-child, h5:last-child, h6:last-child { margin-bottom: 0; }
 
-header .header,
-footer .footer {
-  visibility: hidden;
-}
+hr { border: none; border-top: 1px solid var(--color-light-gray); margin: 2rem 0; }
 
-header .header[data-block-status="loaded"],
-footer .footer[data-block-status="loaded"] {
-  visibility: visible;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin-top: 0.8em;
-  margin-bottom: 0.25em;
-  font-family: var(--heading-font-family);
-  font-weight: 600;
-  line-height: 1.25;
-  scroll-margin: 40px;
-}
-
-h1 { font-size: var(--heading-font-size-xxl); }
-h2 { font-size: var(--heading-font-size-xl); }
-h3 { font-size: var(--heading-font-size-l); }
-h4 { font-size: var(--heading-font-size-m); }
-h5 { font-size: var(--heading-font-size-s); }
-h6 { font-size: var(--heading-font-size-xs); }
-
-p,
-dl,
-ol,
-ul,
-pre,
-blockquote {
-  margin-top: 0.8em;
-  margin-bottom: 0.25em;
-}
-
-code,
-pre {
-  font-size: var(--body-font-size-s);
-}
-
-pre {
-  padding: 16px;
-  border-radius: 8px;
-  background-color: var(--light-color);
-  overflow-x: auto;
-  white-space: pre;
-}
-
-main > div {
-  margin: 40px 16px;
-}
-
-input,
-textarea,
-select,
-button {
-  font: inherit;
-}
-
-/* links */
+/* --- LINKS --- */
 a:any-link {
-  color: var(--link-color);
-  text-decoration: none;
-  overflow-wrap: break-word;
+    color: var(--color-info);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color var(--transition-fast);
 }
+a:hover { color: var(--color-light-slate-gray-hover); }
 
-a:hover {
-  color: var(--link-hover-color);
-  text-decoration: underline;
-}
+/* --- IMAGES --- */
+img { display: block; max-width: 100%; height: auto; }
 
-/* buttons */
-p.button-wrapper {
-  margin: 12px 0;
-}
-
+/* --- BUTTONS – identici a sdt-btn --- */
+.sdt-btn,
 a.button:any-link,
 button.button {
-  box-sizing: border-box;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  max-width: 100%;
-  margin: 0;
-  border: 2px solid transparent;
-  border-radius: 2.4em;
-  padding: 0.5em 1.2em;
-  font: inherit;
-  font-weight: 500;
-  line-height: 1.25;
-  text-decoration: none;
-  cursor: pointer;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    border: 2px solid transparent;
+    border-radius: var(--radius-sm);
+    transition: background-color var(--transition-fast), color var(--transition-fast),
+    border-color var(--transition-fast);
+    white-space: nowrap;
 }
 
-a.button[aria-disabled="true"],
-button.button:disabled {
-  cursor: not-allowed;
-  pointer-events: none;
+/* sdt-btn-darkOrange-2 – CTA primario */
+.sdt-btn-darkOrange-2,
+a.button.primary:any-link {
+    background-color: var(--color-dark-orange);
+    color: var(--color-white) !important;
+    border-color: var(--color-dark-orange);
+}
+.sdt-btn-darkOrange-2:hover,
+a.button.primary:hover {
+    background-color: var(--color-dark-orange-hover);
+    border-color: var(--color-dark-orange-hover);
+    color: var(--color-white) !important;
 }
 
-a.button.primary,
-button.button.primary {
-  border-color: var(--text-color);
-  background-color: var(--text-color);
-  color: var(--background-color);
+/* sdt-btn-gray-3 – secondario */
+.sdt-btn-gray-3,
+a.button.secondary:any-link {
+    background-color: transparent;
+    color: var(--color-info) !important;
+    border-color: var(--color-light-gray);
+}
+.sdt-btn-gray-3:hover,
+a.button.secondary:hover {
+    background-color: var(--color-lightest-gray);
+    color: var(--color-light-slate-gray-hover) !important;
 }
 
-a.button.primary:hover,
-a.button.primary:focus-visible,
-button.button.primary:hover,
-button.button.primary:focus-visible {
-  border-color: var(--dark-color);
-  background-color: var(--dark-color);
-  color: var(--light-color);
+/* sdt-btn-gray-2 – ghost */
+.sdt-btn-gray-2 {
+    background-color: var(--color-lightest-gray);
+    color: var(--color-dark-gray) !important;
+    border-color: var(--color-light-gray);
+}
+.sdt-btn-gray-2:hover {
+    background-color: var(--color-lightest-gray-hover);
 }
 
-a.button.primary[aria-disabled="true"],
-a.button.primary[aria-disabled="true"]:hover,
-a.button.primary[aria-disabled="true"]:focus-visible,
-button.button.primary:disabled,
-button.button.primary:disabled:hover,
-button.button.primary:disabled:focus-visible {
-  background-color: var(--light-color);
-  border-color: var(--light-color);
-  color: var(--dark-color);
+/* --- FOCUS – uguale al progetto AEM --- */
+:focus-visible {
+    outline: 2px solid var(--color-dark-gray);
+    background-color: var(--color-gold);
+    color: var(--color-dark-gray);
+    border-radius: var(--radius-sm);
 }
 
-a.button.secondary,
-button.button.secondary {
-  border-color: var(--text-color);
-  background-color: transparent;
-  color: var(--text-color);
+/* --- SECTIONS --- */
+main .section { padding: 3rem var(--grid-margin); }
+main .section > div { max-width: var(--grid-max-width); margin: auto; }
+main .section.full-width > div { max-width: unset; padding: 0; }
+main .section.gray-bg { background-color: var(--color-lightest-gray); }
+
+/* --- COMPONENT SPACING: padding verticale dei componenti IDM (16/24, 40/40 da 960px) --- */
+@media (width >= 960px) {
+    :root {
+        --component-padding-top: 40px;
+        --component-padding-bottom: 40px;
+    }
 }
 
-a.button.secondary:hover,
-a.button.secondary:focus-visible,
-button.button.secondary:hover,
-button.button.secondary:focus-visible {
-  border-color: var(--dark-color);
-  background-color: var(--light-color);
-  color: var(--dark-color);
+/* --- ACCESSIBILITY --- */
+.sr-only {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
 }
 
-a.button.secondary[aria-disabled="true"],
-a.button.secondary[aria-disabled="true"]:hover,
-a.button.secondary[aria-disabled="true"]:focus-visible,
-button.button.secondary:disabled,
-button.button.secondary:disabled:hover,
-button.button.secondary:disabled:focus-visible {
-  background-color: var(--light-color);
-  border-color: var(--light-color);
-  color: var(--dark-color);
+/* --- LOADER dots (tile-slider skeleton) --- */
+.sdt-loader { display: flex; flex-direction: column; align-items: center; padding: 2rem; gap: 0.75rem; }
+.loader--items { display: flex; gap: 6px; }
+.loader--dot {
+    width: 10px; height: 10px;
+    background: var(--color-light-gray);
+    border-radius: 50%;
+    animation: dotPulse 1.4s ease-in-out infinite both;
+}
+.loader--dot:nth-child(2) { animation-delay: 0.16s; }
+.loader--dot:nth-child(3) { animation-delay: 0.32s; }
+.loader--dot:nth-child(4) { animation-delay: 0.48s; }
+.loader--dot:nth-child(5) { animation-delay: 0.64s; }
+.loader--dot:nth-child(6) { animation-delay: 0.80s; }
+@keyframes dotPulse {
+    0%, 80%, 100% { opacity: 0.2; transform: scale(0.8); }
+    40% { opacity: 1; transform: scale(1); }
 }
 
-/* high-impact call-to-action */
-a.button.accent,
-button.button.accent {
-  border-color: var(--link-color);
-  background-color: var(--link-color);
-  color: var(--background-color);
-}
-
-a.button.accent:hover,
-a.button.accent:focus-visible,
-button.button.accent:hover,
-button.button.accent:focus-visible {
-  border-color: var(--link-hover-color);
-  background-color: var(--link-hover-color);
-}
-
-a.button.accent[aria-disabled="true"],
-a.button.accent[aria-disabled="true"]:hover,
-a.button.accent[aria-disabled="true"]:focus-visible,
-button.button.accent:disabled,
-button.button.accent:disabled:hover,
-button.button.accent:disabled:focus-visible {
-  background-color: var(--light-color);
-  border-color: var(--light-color);
-  color: var(--dark-color);
-}
-
-main img {
-  max-width: 100%;
-  width: auto;
-  height: auto;
-}
-
-.icon {
-  display: inline-block;
-  height: 24px;
-  width: 24px;
-}
-
-.icon img {
-  height: 100%;
-  width: 100%;
-}
-
-/* sections */
-main > .section {
-  margin: 40px 0;
-}
-
-main > .section > div {
-  max-width: 1200px;
-  margin: auto;
-  padding: 0 24px;
-}
-
-main > .section:first-of-type {
-  margin-top: 0;
-}
-
-@media (width >= 900px) {
-  main > .section > div {
-    padding: 0 32px;
-  }
-}
-
-/* section metadata */
-main .section.light,
-main .section.highlight {
-  background-color: var(--light-color);
-  margin: 0;
-  padding: 40px 0;
-}
