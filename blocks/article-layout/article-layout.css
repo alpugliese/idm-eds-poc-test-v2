@@ -1,0 +1,159 @@
+/* Article Layout - mobile first. Breakpoint IDM: 768px, 960px. */
+.article-layout {
+  padding: var(--component-padding-top) 0 var(--component-padding-bottom);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 20px;
+}
+
+.article-layout > div {
+  grid-column: 1 / -1;
+}
+
+/* ---------- testo ---------- */
+.article-layout .article-layout-logo {
+  display: flex;
+  width: 184px;
+  height: 56px;
+  margin: 0 0 24px;
+}
+
+.article-layout.logo-square .article-layout-logo {
+  width: 76px;
+  height: 76px;
+}
+
+.article-layout .article-layout-logo picture {
+  display: contents;
+}
+
+.article-layout .article-layout-logo img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.article-layout .article-layout-title {
+  margin: 0 0 24px;
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-regular);
+  font-size: 1.75rem;
+  line-height: 1.17;
+}
+
+.article-layout .article-layout-hashtags {
+  margin: 0 0 16px;
+}
+
+.article-layout .article-layout-intro {
+  margin: 0 0 24px;
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-regular);
+  font-size: 1.125rem;
+  line-height: 1.26;
+}
+
+.article-layout .article-layout-body {
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-16);
+  line-height: 1.26;
+}
+
+.article-layout .article-layout-body > :first-child {
+  margin-top: 0;
+}
+
+.article-layout .article-layout-cta {
+  margin: 32px 0 0;
+}
+
+/* ---------- media ---------- */
+.article-layout .article-layout-media {
+  padding: 32px 0 24px;
+}
+
+.article-layout .article-layout-media picture,
+.article-layout .article-layout-media img {
+  display: block;
+  width: 100%;
+}
+
+.article-layout .article-layout-media > p {
+  margin: 0;
+}
+
+/* l'ordine visivo vale a tutte le larghezze, come "Change order" dell'originale */
+.article-layout.media-left .article-layout-media {
+  order: -1;
+}
+
+/* ---------- vertical: colonna unica a ogni larghezza ---------- */
+.article-layout.vertical {
+  gap: 40px;
+}
+
+.article-layout.vertical .article-layout-media {
+  padding: 0;
+}
+
+/* ---------- >= 768px ---------- */
+@media (width >= 768px) {
+  .article-layout .article-layout-title {
+    font-size: 2rem;
+    line-height: 1.17;
+  }
+
+  .article-layout .article-layout-intro {
+    font-size: 1.25rem;
+    line-height: 1.26;
+  }
+}
+
+/* ---------- >= 960px ---------- */
+@media (width >= 960px) {
+  .article-layout {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  .article-layout > div {
+    grid-column: span 6;
+  }
+
+  .article-layout .article-layout-media {
+    padding: 0;
+  }
+
+  .article-layout.text-33 .article-layout-text,
+  .article-layout.text-66 .article-layout-media {
+    grid-column: span 4;
+  }
+
+  .article-layout.text-33 .article-layout-media,
+  .article-layout.text-66 .article-layout-text {
+    grid-column: span 8;
+  }
+
+  /* solo testo: a tutta larghezza; con text-66 su 8 colonne (typeText type1) */
+  .article-layout.text-only .article-layout-text {
+    grid-column: 1 / -1;
+  }
+
+  .article-layout.text-only.text-66 .article-layout-text {
+    grid-column: span 8;
+  }
+
+  .article-layout.columns-2 .article-layout-intro {
+    font-size: 1.5rem;
+    line-height: 1.26;
+  }
+
+  .article-layout.columns-2 .article-layout-body {
+    column-count: 2;
+    column-gap: 20px;
+  }
+
+  .article-layout.vertical > div {
+    grid-column: 1 / -1;
+  }
+}
