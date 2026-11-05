@@ -1,0 +1,337 @@
+/* Content Special - mobile first. Breakpoint IDM: 768px. */
+
+/* Il componente e' sempre a tutta larghezza della pagina, anche dentro una sezione normale */
+main .section .content-special-wrapper {
+  width: 100vw;
+  max-width: none;
+  margin-left: calc(50% - 50vw);
+  margin-right: 0;
+}
+
+main:has(.content-special) {
+  overflow-x: clip;
+}
+
+.content-special {
+  padding: var(--component-padding-top) 0 var(--component-padding-bottom);
+}
+
+.content-special .content-special-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 260px;
+  padding: 32px 24px 40px;
+  background-color: var(--color-lightest-gray);
+}
+
+.content-special.black .content-special-container {
+  background-color: var(--color-light-slate-gray-aa);
+}
+
+/* ---------- pannello di testo ---------- */
+.content-special .content-special-panel {
+  position: relative;
+  z-index: 2;
+  order: 1;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.content-special .content-special-title {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-regular);
+  font-size: 1.75rem;
+  line-height: 1.17;
+}
+
+.content-special .content-special-text {
+  margin: 12px 0 0;
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-regular);
+  font-size: 1.125rem;
+  line-height: 1.5;
+  overflow-wrap: break-word;
+}
+
+.content-special .content-special-cta {
+  width: max-content;
+  margin: 20px 0;
+}
+
+.content-special .content-special-cta a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 12px 24px;
+}
+
+.content-special .content-special-cta a.button {
+  border: 1px solid var(--color-light-slate-gray-aa);
+  background-color: var(--color-light-slate-gray-aa);
+  color: var(--color-white) !important;
+}
+
+.content-special .content-special-cta a.button:hover {
+  border-color: var(--color-light-slate-gray-hover);
+  background-color: var(--color-light-slate-gray-hover);
+  color: var(--color-white) !important;
+}
+
+.content-special .content-special-cta a.button:focus-visible {
+  border-color: transparent;
+  outline: 0;
+  background-color: var(--color-gold);
+  color: var(--color-dark-gray) !important;
+}
+
+.content-special .content-special-cta a::after {
+  content: '\2192';
+}
+
+.content-special.black .content-special-title,
+.content-special.black .content-special-text {
+  color: var(--color-white);
+}
+
+/* ---------- media ---------- */
+.content-special .content-special-media {
+  position: relative;
+  order: 2;
+  width: 100%;
+  height: 260px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: var(--color-light-gray);
+}
+
+.content-special.media-top .content-special-media {
+  order: 0;
+  margin-bottom: 20px;
+}
+
+.content-special.media-top .content-special-cta {
+  margin-bottom: 0;
+}
+
+.content-special .content-special-track {
+  display: flex;
+  height: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.content-special .content-special-track::-webkit-scrollbar {
+  display: none;
+}
+
+.content-special .content-special-slide {
+  position: relative;
+  flex: 0 0 100%;
+  height: 100%;
+  scroll-snap-align: start;
+}
+
+.content-special .content-special-slide picture {
+  display: contents;
+}
+
+.content-special .content-special-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ---------- paginazione ---------- */
+.content-special .content-special-dots {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.content-special .content-special-dots button {
+  width: 23px;
+  height: 6px;
+  margin: 0 4px 14px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: var(--color-white);
+  box-shadow: 0 2px 20px rgb(0 0 0 / 40%), 0 2px 7.5px rgb(0 0 0 / 40%);
+  cursor: pointer;
+}
+
+.content-special .content-special-dots button.active {
+  border: 1px solid var(--color-white);
+  background: var(--color-light-slate-gray-aa);
+}
+
+/* ---------- pulsante play della slide video ---------- */
+.content-special .content-special-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background-color: rgb(255 255 255 / 90%);
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.content-special .content-special-play::before {
+  content: '';
+  margin-left: 5px;
+  border-width: 11px 0 11px 18px;
+  border-style: solid;
+  border-color: transparent transparent transparent var(--color-dark-gray);
+}
+
+/* ---------- modale video ---------- */
+.content-special-modal {
+  width: 100vw;
+  max-width: none;
+  height: 100vh;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.content-special-modal::backdrop {
+  background: rgb(0 0 0 / 85%);
+}
+
+.content-special-modal[open] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-special-modal .content-special-modal-content {
+  width: 100%;
+}
+
+.content-special-modal .content-special-modal-content video,
+.content-special-modal .content-special-modal-content iframe {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border: 0;
+}
+
+.content-special-modal .content-special-modal-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background-color: var(--color-white);
+  color: var(--color-light-slate-gray-aa);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.content-special-modal .content-special-modal-close::before {
+  content: '\00d7';
+}
+
+/* ---------- >= 768px: pannello laterale sopra il carosello a tutta fascia ---------- */
+@media (width >= 768px) {
+  .content-special .content-special-container {
+    flex-direction: row;
+    min-height: 705px;
+    padding: 0;
+    background: none;
+  }
+
+  .content-special .content-special-title {
+    font-size: 2rem;
+    line-height: 1.17;
+  }
+
+  .content-special .content-special-text {
+    margin-top: 32px;
+    font-size: 1.25rem;
+  }
+
+  .content-special .content-special-cta {
+    margin: 56px 0 0;
+  }
+
+  .content-special .content-special-panel {
+    display: flex;
+    flex: 0 0 357px;
+    flex-direction: column;
+    align-self: stretch;
+    justify-content: flex-end;
+    width: 357px;
+    padding: 48px 48px 80px;
+    background-color: rgb(245 245 245 / 95%);
+  }
+
+  .content-special.black .content-special-panel {
+    background-color: rgb(91 114 134 / 95%);
+  }
+
+  .content-special.right .content-special-panel {
+    margin-left: auto;
+  }
+
+  .content-special .content-special-media,
+  .content-special.media-top .content-special-media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    height: 100%;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  /* la zona visibile del media e' quella non coperta dal pannello */
+  .content-special .content-special-dots {
+    left: 357px;
+  }
+
+  .content-special .content-special-play {
+    left: calc(50% + 178.5px);
+    width: 74px;
+    height: 74px;
+  }
+
+  .content-special.right .content-special-dots {
+    right: 357px;
+    left: 0;
+  }
+
+  .content-special.right .content-special-play {
+    left: calc(50% - 178.5px);
+  }
+
+  .content-special-modal .content-special-modal-content {
+    padding: 0 80px;
+  }
+
+  .content-special-modal .content-special-modal-close {
+    top: 25px;
+    right: 25px;
+  }
+}
