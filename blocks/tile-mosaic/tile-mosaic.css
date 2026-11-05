@@ -163,6 +163,9 @@
     height: 340px;
   }
 
+  /* le altezze mobile per posizione vanno azzerate: da 768px tutte le tile sono alte 340px */
+  .tile-mosaic .tile:nth-child(n) { height: 340px; }
+
   .tile-mosaic .tile:nth-child(1),
   .tile-mosaic .tile:nth-child(4) { grid-column: span 4; }
 

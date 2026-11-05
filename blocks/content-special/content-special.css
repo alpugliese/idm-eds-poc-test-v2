@@ -86,6 +86,12 @@ main:has(.content-special) {
   color: var(--color-dark-gray) !important;
 }
 
+.content-special .content-special-cta em,
+.content-special .content-special-cta strong {
+  font-style: normal;
+  font-weight: inherit;
+}
+
 .content-special .content-special-cta a::after {
   content: '\2192';
 }
