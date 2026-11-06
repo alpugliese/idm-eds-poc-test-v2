@@ -1,5 +1,4 @@
 import {
-  loadHeader,
   loadFooter,
   decorateIcons,
   decorateSections,
@@ -184,8 +183,6 @@ async function loadEager(doc) {
  * @param {Element} doc The container element
  */
 async function loadLazy(doc) {
-  loadHeader(doc.querySelector('body > header'));
-
   const main = doc.querySelector('main');
   await loadSections(main);
 
