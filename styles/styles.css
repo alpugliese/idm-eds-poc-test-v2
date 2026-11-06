@@ -58,7 +58,7 @@
     --font-weight-bold: 700;
 
     /* Layout */
-    --grid-max-width: 1280px;
+    --grid-max-width: none; /* come IDM: nessun limite, i margini laterali crescono con lo schermo */
     --grid-margin: 1.5rem;
 
     /* Component spacing (IDM): padding verticale dei componenti, 40px da 960px */
@@ -91,7 +91,7 @@ body {
     line-height: normal;
 }
 body.appear { display: block; }
-header { height: var(--nav-height); }
+header { display: none; }
 
 /* --- TYPOGRAPHY --- */
 h1, h2, h3, h4, h5, h6 {
@@ -196,6 +196,31 @@ main .section { padding: 3rem var(--grid-margin); }
 main .section > div { max-width: var(--grid-max-width); margin: auto; }
 main .section.full-width > div { max-width: unset; padding: 0; }
 main .section.gray-bg { background-color: var(--color-lightest-gray); }
+
+/* --- MARGINI LATERALI come IDM (container-padding m/l/xl/xxl, senza la sidebar) --- */
+@media (width >= 960px) {
+    :root {
+        --grid-margin: 114px;
+    }
+}
+
+@media (width >= 1280px) {
+    :root {
+        --grid-margin: 130px;
+    }
+}
+
+@media (width >= 1620px) {
+    :root {
+        --grid-margin: 240px;
+    }
+}
+
+@media (width >= 1920px) {
+    :root {
+        --grid-margin: 400px;
+    }
+}
 
 /* --- COMPONENT SPACING: padding verticale dei componenti IDM (16/24, 40/40 da 960px) --- */
 @media (width >= 960px) {
